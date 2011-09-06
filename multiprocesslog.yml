@@ -1,0 +1,10 @@
+- command: iostat -dkt 4
+  log: /tmp/log-iostat.txt
+  keepalive: true
+- command: iostat -dktx 4
+  log: /tmp/log-iostat2.txt
+  keepalive: true
+- commands:
+    - passenger-status
+    - top -b -n 1
+  log: /tmp/log.txt
