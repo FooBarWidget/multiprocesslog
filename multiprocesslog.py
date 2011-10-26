@@ -61,13 +61,13 @@ def kill_pids(pids):
 		print 'Killing PID', pid
 		try:
 			os.kill(pid, signal.SIGTERM)
-		except OSError as e:
+		except OSError, e:
 			if e.errno != errno.ECHILD and e.errno != errno.ESRCH:
 				raise e
 	for pid in pids:
 		try:
 			os.waitpid(pid, 0)
-		except OSError as e:
+		except OSError, e:
 			if e.errno != errno.ECHILD and e.errno != errno.ESRCH:
 				raise e
 
